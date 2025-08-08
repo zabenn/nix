@@ -1,6 +1,1 @@
-{
-  imports = [
-    ./gnome.nix
-    ./gpu.nix
-  ];
-}
+{ imports = [ ./gnome.nix ./gpu.nix ]; }

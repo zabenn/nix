@@ -1,15 +1,5 @@
-{
-  inputs,
-  outputs,
-  lib,
-  config,
-  pkgs,
-  ...
-}: {
-  imports = [
-    inputs.home-manager.nixosModules.home-manager
-    ../modules/nixos
-  ];
+{ inputs, outputs, lib, config, pkgs, ... }: {
+  imports = [ inputs.home-manager.nixosModules.home-manager ../modules/nixos ];
 
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
@@ -20,13 +10,10 @@
       outputs.overlays.modifications
       outputs.overlays.unstable-packages
     ];
-    config = {
-      allowUnfree = true;
-    };
+    config = { allowUnfree = true; };
   };
 
-  nix = let
-    flakeInputs = lib.filterAttrs (_: lib.isType "flake") inputs;
+  nix = let flakeInputs = lib.filterAttrs (_: lib.isType "flake") inputs;
   in {
     settings = {
       experimental-features = "nix-command flakes";
@@ -35,7 +22,7 @@
     };
     channel.enable = false;
 
-    registry = lib.mapAttrs (_: flake: {inherit flake;}) flakeInputs;
+    registry = lib.mapAttrs (_: flake: { inherit flake; }) flakeInputs;
     nixPath = lib.mapAttrsToList (n: _: "${n}=flake:${n}") flakeInputs;
   };
 
@@ -45,24 +32,35 @@
       home = "/home/sam";
       description = "Sam Cribbs";
       openssh.authorizedKeys.keys = [ ];
-      extraGroups = ["networkmanager" "wheel" "users"];
+      extraGroups = [ "networkmanager" "wheel" "users" ];
     };
   };
 
   home-manager = {
     extraSpecialArgs = { inherit inputs outputs; };
-    users = {
-      sam = import ../home-manager/sam.nix;
-    };
+    users = { sam = import ../home-manager/sam.nix; };
   };
 
   environment.systemPackages = with pkgs; [
-    bitwarden-desktop
     blender
+    bitwarden
     firefox
     git
     godot
+    nixfmt
+    (vscode-with-extensions.override {
+      vscodeExtensions = with vscode-extensions; [
+        jnoortheen.nix-ide
+        ms-python.python
+        ms-vscode-remote.remote-containers
+        ms-vscode-remote.remote-ssh
+      ];
+    })
   ];
+
+  environment.variables = {
+    SSH_AUTH_SOCK = lib.mkForce "/home/sam/.bitwarden-ssh-agent.sock";
+  };
 
   system.stateVersion = "23.05";
 }

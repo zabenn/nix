@@ -1,7 +1,5 @@
-{pkgs, ...}: {
-  environment.systemPackages = with pkgs; [
-    nvidia-container-toolkit
-  ];
+{ pkgs, ... }: {
+  environment.systemPackages = with pkgs; [ nvidia-container-toolkit ];
 
   users.extraGroups.docker.members = [ "sam" ];
 
@@ -9,10 +7,6 @@
   virtualisation.docker = {
     enable = true;
     liveRestore = false;
-    daemon.settings = {
-      features = {
-        cdi = true;
-      };
-    };
+    daemon.settings = { features = { cdi = true; }; };
   };
 }
