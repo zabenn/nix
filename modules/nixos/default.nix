@@ -1,1 +1,1 @@
-{ imports = [ ./gnome.nix ./gpu.nix ]; }
+{ imports = [ ./bitwarden.nix ./gnome.nix ./gpu.nix ]; }

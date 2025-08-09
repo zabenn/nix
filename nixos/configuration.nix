@@ -39,6 +39,7 @@
   home-manager = {
     extraSpecialArgs = { inherit inputs outputs; };
     users = { sam = import ../home-manager/sam.nix; };
+    backupFileExtension = "backup";
   };
 
   environment.systemPackages = with pkgs; [
@@ -48,18 +49,11 @@
     git
     godot
     nixfmt
-    (vscode-with-extensions.override {
-      vscodeExtensions = with vscode-extensions; [
-        jnoortheen.nix-ide
-        ms-python.python
-        ms-vscode-remote.remote-containers
-        ms-vscode-remote.remote-ssh
-      ];
-    })
+    vscode
   ];
 
-  environment.variables = {
-    SSH_AUTH_SOCK = lib.mkForce "/home/sam/.bitwarden-ssh-agent.sock";
+  environment.shellAliases = {
+    nixos-switch = "sudo nixos-rebuild switch --flake .#$hostname";
   };
 
   system.stateVersion = "23.05";
