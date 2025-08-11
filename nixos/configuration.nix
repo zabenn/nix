@@ -76,7 +76,7 @@
   ];
 
   environment.shellAliases = {
-    nixos-switch = "sudo nixos-rebuild switch --flake ${toString ../.}#$hostname";
+    nixos-switch = "sudo nixos-rebuild switch --flake .#$hostname";
   };
 
   system.stateVersion = "23.05";

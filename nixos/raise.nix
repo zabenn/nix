@@ -9,12 +9,13 @@
 {
   imports = [
     ./configuration.nix
-    # ../modules/nixos/docker.nix
+    ../modules/nixos/docker.nix
   ];
 
   environment.systemPackages = with pkgs; [
     nomachine-client
+    notion-app-enhanced
     slack
-    # vault
+    vault
   ];
 }

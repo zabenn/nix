@@ -23,6 +23,12 @@
     enable = true;
     userName = "Sam Cribbs";
     userEmail = "samuel_cribbs@berkeley.edu";
+    lfs.enable = true;
+    extraConfig = {
+      push = {
+        autoSetupRemote = true;
+      };
+    };
   };
 
   programs.vscode = {
@@ -30,6 +36,7 @@
     profiles.default = {
       extensions = with pkgs.vscode-extensions; [
         jnoortheen.nix-ide
+        # ms-azuretools.vscode-containers
         ms-python.python
         ms-vscode-remote.remote-containers
         ms-vscode-remote.remote-ssh

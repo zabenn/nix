@@ -10,7 +10,7 @@
 
     nur.url = "github:nix-community/NUR";
 
-    vscode-extensions.url = "github:nix-community/vscode-extensions";
+    vscode-extensions.url = "github:nix-community/nix-vscode-extensions";
   };
 
   outputs =
@@ -37,6 +37,18 @@
           modules = [
             { networking.hostName = "p14s"; }
             ./hardware/p14s.nix
+            ./nixos/raise.nix
+          ];
+        };
+      };
+
+      nixosConfigurations = {
+        zbox = nixpkgs.lib.nixosSystem {
+          specialArgs = { inherit inputs outputs; };
+          system = "x86_64-linux";
+          modules = [
+            { networking.hostName = "zbox"; }
+            ./hardware/zbox.nix
             ./nixos/raise.nix
           ];
         };
