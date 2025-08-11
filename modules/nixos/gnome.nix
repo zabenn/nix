@@ -1,4 +1,5 @@
-{ pkgs, ... }: {
+{ pkgs, ... }:
+{
   services.xserver.enable = true;
 
   services.xserver.displayManager.gdm.enable = true;
@@ -8,4 +9,13 @@
     layout = "us";
     variant = "";
   };
+
+  environment.gnome.excludePackages = (
+    with pkgs;
+    [
+      epiphany
+      gnome-tour
+      nixos-help
+    ]
+  );
 }

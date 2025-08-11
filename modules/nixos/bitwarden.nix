@@ -1,4 +1,5 @@
-{ pkgs, ... }: {
+{ pkgs, ... }:
+{
   programs.ssh.startAgent = false;
   programs.ssh.extraConfig = ''
     Host *

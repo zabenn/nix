@@ -8,12 +8,24 @@
     home-manager.url = "github:nix-community/home-manager/release-25.05";
     home-manager.inputs.nixpkgs.follows = "nixpkgs";
 
-    nix-vscode-extensions.url = "github:nix-community/nix-vscode-extensions";
+    nur.url = "github:nix-community/NUR";
+
+    vscode-extensions.url = "github:nix-community/vscode-extensions";
   };
 
-  outputs = inputs@{ self, nixpkgs, home-manager, nix-vscode-extensions, ... }:
-    let inherit (self) outputs;
-    in {
+  outputs =
+    inputs@{
+      self,
+      nixpkgs,
+      home-manager,
+      nur,
+      vscode-extensions,
+      ...
+    }:
+    let
+      inherit (self) outputs;
+    in
+    {
       overlays = import ./overlays { inherit inputs; };
       nixosModules = import ./modules/nixos;
       homeManagerModules = import ./modules/home-manager;
