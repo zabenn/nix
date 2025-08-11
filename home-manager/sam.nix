@@ -7,17 +7,26 @@
   ...
 }:
 {
-  imports = [ ];
+  imports = [ ../modules/home-manager ];
 
   systemd.user.startServices = "sd-switch";
 
   programs.home-manager.enable = true;
 
-  nixpkgs.config.allowUnfree = true;
+  nixpkgs = {
+    overlays = [
+      inputs.nur.overlays.default
+      inputs.vscode-extensions.overlays.default
+      outputs.overlays.additions
+      outputs.overlays.modifications
+      outputs.overlays.unstable-packages
+    ];
+    config = {
+      allowUnfree = true;
+    };
+  };
 
   xdg.userDirs.createDirectories = false;
-
-  nixpkgs.overlays = [ inputs.nur.overlays.default ];
 
   programs.git = {
     enable = true;
@@ -36,7 +45,7 @@
     profiles.default = {
       extensions = with pkgs.vscode-extensions; [
         jnoortheen.nix-ide
-        # ms-azuretools.vscode-containers
+        ms-azuretools.vscode-docker
         ms-python.python
         ms-vscode-remote.remote-containers
         ms-vscode-remote.remote-ssh

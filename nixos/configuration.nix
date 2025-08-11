@@ -17,6 +17,7 @@
 
   nixpkgs = {
     overlays = [
+      inputs.nur.overlays.default
       outputs.overlays.additions
       outputs.overlays.modifications
       outputs.overlays.unstable-packages

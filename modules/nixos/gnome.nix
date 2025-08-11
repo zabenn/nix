@@ -10,11 +10,8 @@
     variant = "";
   };
 
-  environment.gnome.excludePackages = (
-    with pkgs;
-    [
-      epiphany
-      gnome-tour
-    ]
-  );
+  environment.systemPackages = with pkgs; [
+    gnomeExtensions.blur-my-shell
+    gnomeExtensions.alphabetical-app-grid
+  ];
 }
