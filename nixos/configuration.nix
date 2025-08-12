@@ -29,7 +29,9 @@
 
   nix =
     let
-      flakeInputs = lib.filterAttrs (_: lib.isType "flake") inputs;
+      flakeInputs = lib.filterAttrs (_: lib.isType "flake") inputs // {
+        nixos = inputs.self;
+      };
     in
     {
       settings = {
@@ -78,7 +80,7 @@
   ];
 
   environment.shellAliases = {
-    nixos-switch = "sudo nixos-rebuild switch --flake .#$hostname";
+    nixos-switch = "sudo nixos-rebuild switch --flake nixos#$hostname";
   };
 
   system.stateVersion = "23.05";
