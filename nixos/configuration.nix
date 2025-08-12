@@ -62,7 +62,7 @@
     users = {
       sam = import ../home-manager/sam.nix;
     };
-    backupFileExtension = "hm-backup";
+    backupFileExtension = "backup";
   };
 
   environment.systemPackages = with pkgs; [
@@ -72,6 +72,7 @@
     firefox
     git
     godot
+    inter
     nixfmt-rfc-style
     vscode
   ];

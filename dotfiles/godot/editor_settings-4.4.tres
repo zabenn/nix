@@ -1,0 +1,57 @@
+[gd_resource type="EditorSettings" load_steps=4 format=3]
+
+[sub_resource type="InputEventKey" id="InputEventKey_rlha4"]
+alt_pressed = true
+shift_pressed = true
+pressed = true
+keycode = 70
+
+[sub_resource type="Shortcut" id="Shortcut_17y2b"]
+events = [SubResource("InputEventKey_rlha4")]
+
+[sub_resource type="InputEventKey" id="InputEventKey_17y2b"]
+keycode = 4194326
+
+[resource]
+interface/editor/dock_tab_style = 1
+interface/editor/main_font = "/run/current-system/sw/share/fonts/truetype/InterVariable.ttf"
+interface/theme/preset = "Custom"
+interface/theme/base_color = Color(0.145098, 0.145098, 0.145098, 1)
+interface/theme/accent_color = Color(0.207843, 0.517647, 0.894118, 1)
+interface/theme/contrast = 0.3
+interface/theme/icon_saturation = 2.0
+interface/theme/corner_radius = 5
+interface/theme/custom_theme = "/home/sam/.local/share/godot/themes/minimal_theme.tres"
+filesystem/import/blender/blender_path = "/run/current-system/sw/bin/blender"
+text_editor/appearance/whitespace/draw_tabs = false
+editors/3d_gizmos/gizmo_settings/bone_axis_length = 0.1
+export/android/debug_keystore = "/home/sam/.local/share/godot/keystores/debug.keystore"
+export/android/debug_keystore_pass = "android"
+export/android/java_sdk_path = ""
+export/macos/rcodesign = ""
+export/web/http_port = 8060
+export/web/tls_key = ""
+export/web/tls_certificate = ""
+export/windows/rcedit = ""
+export/windows/osslsigncode = ""
+export/windows/wine = ""
+_editor_settings_advanced_mode = true
+_project_settings_advanced_mode = false
+_export_template_download_directory = ""
+_default_feature_profile = ""
+_script_setup_templates_dictionary = {}
+_use_favorites_root_selection = false
+_script_setup_use_script_templates = false
+GDScript_Formatter/line_length = 88
+GDScript_Formatter/format_on_save = true
+GDScript_Formatter/shortcut = SubResource("Shortcut_17y2b")
+GDScript_Formatter/fast_but_unsafe = false
+GDScript_Formatter/gdformat_command = "gdformat"
+GDScript_Formatter/pip_command = "pip"
+shortcuts = [{
+"name": "spatial_editor/viewport_zoom_modifier_1",
+"shortcuts": [SubResource("InputEventKey_17y2b")]
+}, {
+"name": "spatial_editor/viewport_zoom_modifier_2",
+"shortcuts": []
+}]
