@@ -60,7 +60,7 @@
   home-manager = {
     extraSpecialArgs = { inherit inputs outputs; };
     users = {
-      sam = import ../home-manager/sam.nix;
+      sam = import ../home-manager/home.nix;
     };
     backupFileExtension = "backup";
   };
