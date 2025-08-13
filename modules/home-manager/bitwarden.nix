@@ -10,8 +10,8 @@
     enable = true;
     matchBlocks = {
       "*" = {
-        identityFile = "${config.home.homeDirectory}/.ssh/zabenn.pub";
         identityAgent = "${config.home.homeDirectory}/.bitwarden-ssh-agent.sock";
+        identityFile = "${config.home.homeDirectory}/.ssh/zabenn.pub";
       };
     };
   };

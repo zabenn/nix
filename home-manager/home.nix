@@ -38,12 +38,6 @@
         autoSetupRemote = true;
       };
     };
-    signing = {
-      key = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIMDrJVcWoKHN780MaZdLj4Uh7kZQOvtHvV6GSQJKyJ4g";
-    };
-    extraConfig = {
-      gpg.format = "ssh";
-    };
   };
 
   programs.vscode = {
@@ -59,7 +53,9 @@
       userSettings = {
         "editor.formatOnSave" = true;
         "explorer.confirmDelete" = false;
+        "files.insertFinalNewline" = true;
         "git.autofetch" = true;
+        "remote.SSH.configFile" = "${config.home.homeDirectory}/metalman2/.devops/ssh/config";
       };
     };
   };
