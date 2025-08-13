@@ -1,4 +1,4 @@
-{ pkgs, ... }:
+{ lib, pkgs, ... }:
 {
   services.xserver = {
     enable = true;
@@ -10,8 +10,11 @@
     };
   };
 
+  services.tzupdate.enable = true;
+
   environment.systemPackages = with pkgs; [
-    gnomeExtensions.blur-my-shell
     gnomeExtensions.alphabetical-app-grid
+    gnomeExtensions.blur-my-shell
+    gnomeExtensions.paperwm
   ];
 }
