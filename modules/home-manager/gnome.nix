@@ -3,6 +3,9 @@
   dconf = {
     enable = true;
     settings = {
+      "org/gnome/desktop/background" = {
+        picture-uri-dark = "file://" + toString ../../dotfiles/gnome/wallpaper.png;
+      };
       "org/gnome/desktop/interface" = {
         accent-color = "blue";
         clock-format = "12h";
@@ -59,8 +62,10 @@
           ''{"wm_class":"org.gnome.Console","preferredWidth":"50%"}''
           ''{"wm_class":"org.gnome.Settings","preferredWidth":"50%"}''
           ''{"wm_class":"Bitwarden","preferredWidth":"50%"}''
+          ''{"wm_class":"org.gnome.Nautilus","scratch_layer":true}''
         ];
       };
+
     };
   };
 }
