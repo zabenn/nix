@@ -79,5 +79,9 @@
     enable = true;
   };
 
+  home.shellAliases = {
+    nixos-switch = "sudo nixos-rebuild switch --flake ${config.home.homeDirectory}/nix#$hostname";
+  };
+
   home.stateVersion = "23.05";
 }

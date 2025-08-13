@@ -1,4 +1,4 @@
-{ pkgs, ... }:
+{ lib, pkgs, ... }:
 {
   dconf = {
     enable = true;
@@ -10,7 +10,13 @@
         clock-show-weekday = true;
       };
       "org/gnome/desktop/wm/preferences".num-workspaces = 1;
-      "org/gnome/mutter".dynamic-workspaces = false;
+      "org/gnome/mutter" = {
+        experimental-features = [
+          "scale-monitor-framebuffer"
+          "xwayland-native-scaling"
+        ];
+        dynamic-workspaces = false;
+      };
       "org/gnome/shell" = {
         disable-user-extensions = false;
         enabled-extensions = [
@@ -19,5 +25,9 @@
         ];
       };
     };
+  };
+
+  home.file.".config/monitors.xml" = {
+    source = ../../dotfiles/gnome/monitors.xml;
   };
 }
