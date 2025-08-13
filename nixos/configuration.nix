@@ -29,9 +29,7 @@
 
   nix =
     let
-      flakeInputs = lib.filterAttrs (_: lib.isType "flake") inputs // {
-        nixos = inputs.self;
-      };
+      flakeInputs = lib.filterAttrs (_: lib.isType "flake") inputs;
     in
     {
       settings = {
