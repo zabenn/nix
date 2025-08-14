@@ -43,6 +43,11 @@
       nixPath = lib.mapAttrsToList (n: _: "${n}=flake:${n}") flakeInputs;
     };
 
+  services.logind = {
+    lidSwitchExternalPower = "ignore";
+    lidSwitchDocked = "ignore";
+  };
+
   users.users = {
     sam = {
       isNormalUser = true;
