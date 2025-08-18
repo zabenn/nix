@@ -9,6 +9,7 @@
 {
   imports = [
     ./home.nix
+    ../modules/home-manager/aws.nix
     ../modules/home-manager/metalman.nix
   ];
 }

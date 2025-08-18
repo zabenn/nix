@@ -10,6 +10,8 @@
 
     nur.url = "github:nix-community/NUR";
 
+    stylix.url = "github:nix-community/stylix/release-25.05";
+
     vscode-extensions.url = "github:nix-community/nix-vscode-extensions/00e11463876a04a77fb97ba50c015ab9e5bee90d";
   };
 
@@ -19,6 +21,7 @@
       nixpkgs,
       home-manager,
       nur,
+      stylix,
       vscode-extensions,
       ...
     }:
@@ -28,7 +31,7 @@
     {
       overlays = import ./overlays { inherit inputs; };
       nixosModules = import ./modules/nixos;
-      homeManagerModules = import ./modules/home-manager;
+      homeModules = import ./modules/home-manager;
 
       nixosConfigurations = {
         p14s = nixpkgs.lib.nixosSystem {

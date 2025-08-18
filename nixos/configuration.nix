@@ -65,7 +65,21 @@
   home-manager = {
     extraSpecialArgs = { inherit inputs outputs; };
     users = {
-      sam = import ../home-manager/home.nix;
+      sam = {
+        imports = [
+          inputs.stylix.homeModules.stylix
+          ../home-manager/home.nix
+        ];
+      };
+    };
+  };
+
+  services.hardware.openrgb = {
+    enable = true;
+    package = pkgs.openrgb-with-all-plugins;
+    motherboard = "intel";
+    server = {
+      port = 6742;
     };
   };
 
@@ -78,6 +92,10 @@
     godot
     inter
     nixfmt-rfc-style
+    openrgb
+    ptyxis
+    python3
+    uv
     vscode
   ];
 

@@ -10,9 +10,7 @@
     METALMAN_DIR = "${config.home.homeDirectory}/metalman2";
   };
 
-  home.file.".ssh/samraise.pub" = {
-    source = ../../dotfiles/ssh/samraise.pub;
-  };
+  home.file.".ssh/samraise.pub".source = ../../dotfiles/ssh/samraise.pub;
 
   programs.ssh.includes = [ "\${METALMAN_DIR}/.devops/ssh/config" ];
 }

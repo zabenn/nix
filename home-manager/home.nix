@@ -7,7 +7,10 @@
   ...
 }:
 {
-  imports = [ ../modules/home-manager ];
+
+  imports = [
+    ../modules/home-manager
+  ];
 
   systemd.user.startServices = "sd-switch";
 
@@ -73,14 +76,6 @@
         bitwarden
       ];
     };
-  };
-
-  programs.bash = {
-    enable = true;
-  };
-
-  home.shellAliases = {
-    nixos-switch = "sudo nixos-rebuild switch --flake ${config.home.homeDirectory}/nix#$hostname";
   };
 
   home.stateVersion = "23.05";

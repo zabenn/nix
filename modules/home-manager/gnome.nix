@@ -1,16 +1,21 @@
-{ lib, pkgs, ... }:
+{
+  inputs,
+  lib,
+  pkgs,
+  ...
+}:
 {
   dconf = {
     enable = true;
     settings = {
-      "org/gnome/desktop/background" = {
-        picture-uri-dark = "file://" + toString ../../dotfiles/gnome/wallpaper.png;
+      "com/ftpix/transparentbar" = {
+        dark-full-screen = false;
+        transparency = 0;
       };
       "org/gnome/desktop/interface" = {
         accent-color = "blue";
         clock-format = "12h";
         clock-show-weekday = true;
-        color-scheme = "prefer-dark";
       };
       "org/gnome/mutter" = {
         experimental-features = [
@@ -22,9 +27,9 @@
         disable-user-extensions = false;
         enabled-extensions = [
           pkgs.gnomeExtensions.alphabetical-app-grid.extensionUuid
-          pkgs.gnomeExtensions.blur-my-shell.extensionUuid
           pkgs.gnomeExtensions.just-perfection.extensionUuid
           pkgs.gnomeExtensions.paperwm.extensionUuid
+          pkgs.gnomeExtensions.transparent-top-bar-adjustable-transparency.extensionUuid
         ];
       };
       "org/gnome/shell/extensions/just-perfection" = {
@@ -45,27 +50,39 @@
           0.5
           0.65
         ];
-        default-focus-mode = 2;
+        default-focus-mode = 0;
+        gesture-workspace-fingers = 0;
         horizontal-margin = 30;
-        selection-border-radius-bottom = 12;
-        selection-border-radius-top = 12;
+        maximize-width-percent = 0.95;
+        overview-min-windows-per-row = 4;
         selection-border-size = 0;
-        selection-border-sizz = 0;
         show-focus-mode-icon = false;
         show-open-position-icon = false;
+        show-window-position-bar = false;
         show-workspace-indicator = false;
-        vertical-margin = 30;
+        vertical-margin = 0;
         vertical-margin-bottom = 30;
         window-gap = 30;
         winprops = [
-          ''{"wm_class":"*","preferredWidth":"2500px"}''
-          ''{"wm_class":"org.gnome.Console","preferredWidth":"50%"}''
-          ''{"wm_class":"org.gnome.Settings","preferredWidth":"50%"}''
-          ''{"wm_class":"Bitwarden","preferredWidth":"50%"}''
-          ''{"wm_class":"org.gnome.Nautilus","scratch_layer":true}''
+          ''{"wm_class":"*","preferredWidth":"65%"}''
+          ''{"wm_class":"Bitwarden","preferredWidth":"35%"}''
+          ''{"wm_class":"org.gnome.Ptyxis","preferredWidth":"35%"}''
+          ''{"wm_class":"org.gnome.Settings","preferredWidth":"35%"}''
+          ''{"wm_class":"Slack","preferredWidth":"35%"}''
+          ''{"wm_class":"discord","preferredWidth":"50%"}''
         ];
       };
+    };
+  };
 
+  stylix = {
+    enable = true;
+    base16Scheme = ../../dotfiles/themes/cribbage.yaml;
+    image = ../../dotfiles/gnome/wallpaper.png;
+    polarity = "dark";
+    targets = {
+      gnome.enable = true;
+      gtk.enable = true;
     };
   };
 }

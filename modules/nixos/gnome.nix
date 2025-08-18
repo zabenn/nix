@@ -17,8 +17,8 @@
 
   environment.systemPackages = with pkgs; [
     gnomeExtensions.alphabetical-app-grid
-    gnomeExtensions.blur-my-shell
     gnomeExtensions.just-perfection
     gnomeExtensions.paperwm
+    gnomeExtensions.transparent-top-bar-adjustable-transparency
   ];
 }
