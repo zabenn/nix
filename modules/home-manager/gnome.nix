@@ -12,9 +12,13 @@
         dark-full-screen = false;
         transparency = 0;
       };
+      "org/gnome/desktop/background" = {
+        picture-uri-dark = "file://" + toString ../../dotfiles/gnome/wallpaper.png;
+      };
       "org/gnome/desktop/interface" = {
         accent-color = "blue";
         clock-format = "12h";
+        color-scheme = "prefer-dark";
         clock-show-weekday = true;
       };
       "org/gnome/mutter" = {
@@ -64,25 +68,13 @@
         vertical-margin-bottom = 30;
         window-gap = 30;
         winprops = [
-          ''{"wm_class":"*","preferredWidth":"65%"}''
-          ''{"wm_class":"Bitwarden","preferredWidth":"35%"}''
-          ''{"wm_class":"org.gnome.Ptyxis","preferredWidth":"35%"}''
-          ''{"wm_class":"org.gnome.Settings","preferredWidth":"35%"}''
-          ''{"wm_class":"Slack","preferredWidth":"35%"}''
+          ''{"wm_class":"*","preferredWidth":"35%"}''
+          ''{"wm_class":"Code","preferredWidth":"65%"}''
           ''{"wm_class":"discord","preferredWidth":"50%"}''
+          ''{"wm_class":"firefox","preferredWidth":"65%"}''
+          ''{"wm_class":"Godot","preferredWidth":"100%"}''
         ];
       };
-    };
-  };
-
-  stylix = {
-    enable = true;
-    base16Scheme = ../../dotfiles/themes/cribbage.yaml;
-    image = ../../dotfiles/gnome/wallpaper.png;
-    polarity = "dark";
-    targets = {
-      gnome.enable = true;
-      gtk.enable = true;
     };
   };
 }

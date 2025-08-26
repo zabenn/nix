@@ -15,7 +15,9 @@
   home-manager = {
     extraSpecialArgs = { inherit inputs outputs; };
     users = {
-      sam = import ../home-manager/raise.nix;
+      sam.imports = [
+        ../home-manager/raise.nix
+      ];
     };
     backupFileExtension = "backup";
   };

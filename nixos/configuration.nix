@@ -53,7 +53,6 @@
       isNormalUser = true;
       home = "/home/sam";
       description = "Sam Cribbs";
-      openssh.authorizedKeys.keys = [ ];
       extraGroups = [
         "networkmanager"
         "wheel"
@@ -65,12 +64,9 @@
   home-manager = {
     extraSpecialArgs = { inherit inputs outputs; };
     users = {
-      sam = {
-        imports = [
-          inputs.stylix.homeModules.stylix
-          ../home-manager/home.nix
-        ];
-      };
+      sam.imports = [
+        ../home-manager/home.nix
+      ];
     };
   };
 
@@ -93,8 +89,9 @@
     inter
     nixfmt-rfc-style
     openrgb
-    ptyxis
     python3
+    spotify
+    tinty
     uv
     vscode
   ];
