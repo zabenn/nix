@@ -69,11 +69,19 @@
       id = 0;
       name = "Default";
       settings = {
+        "browser.formfill.enable" = false;
+        "browser.newtab.url" = "https://www.google.com";
+        "browser.startup.page" = 3;
         "extensions.autoDisableScopes" = 0;
         "extensions.enabledScopes" = 15;
+        "extensions.formautofill.addresses.enabled" = false;
+        "extensions.formautofill.creditCards.enabled" = false;
+        "pref.privacy.disable_button.view_passwords" = true;
+        "signon.rememberSignons" = false;
       };
       extensions.packages = with pkgs.nur.repos.rycee.firefox-addons; [
         bitwarden
+        ublock-origin
       ];
     };
   };
