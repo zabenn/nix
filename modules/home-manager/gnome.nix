@@ -12,6 +12,7 @@
         dark-full-screen = false;
         transparency = 0;
       };
+      "org/gnome/desktop/app-folders".folder-children = [ ];
       "org/gnome/desktop/background" = {
         picture-uri-dark = "file://" + toString ../../dotfiles/gnome/wallpaper.png;
       };
@@ -75,6 +76,97 @@
           ''{"wm_class":"Godot","preferredWidth":"100%"}''
         ];
       };
+    };
+  };
+
+  xdg.desktopEntries = {
+    "nixos-manual" = {
+      name = "";
+      noDisplay = true;
+    };
+    "nvidia-settings" = {
+      name = "";
+      noDisplay = true;
+    };
+    "org.gnome.Calculator" = {
+      name = "";
+      noDisplay = true;
+    };
+    "org.gnome.Connections" = {
+      name = "";
+      noDisplay = true;
+    };
+    "org.gnome.clocks" = {
+      name = "";
+      noDisplay = true;
+    };
+    "org.gnome.Decibels" = {
+      name = "";
+      noDisplay = true;
+    };
+    "org.gnome.Epiphany" = {
+      name = "";
+      noDisplay = true;
+    };
+    "org.gnome.Evince" = {
+      name = "";
+      noDisplay = true;
+    };
+    "org.gnome.FileRoller" = {
+      name = "";
+      noDisplay = true;
+    };
+    "org.gnome.Geary" = {
+      name = "";
+      noDisplay = true;
+    };
+    "org.gnome.Logs" = {
+      name = "";
+      noDisplay = true;
+    };
+    "org.gnome.Loupe" = {
+      name = "";
+      noDisplay = true;
+    };
+    "org.gnome.Maps" = {
+      name = "";
+      noDisplay = true;
+    };
+    "org.gnome.seahorse.Application" = {
+      name = "";
+      noDisplay = true;
+    };
+    "org.gnome.Snapshot" = {
+      name = "";
+      noDisplay = true;
+    };
+    "org.gnome.TextEditor" = {
+      name = "";
+      noDisplay = true;
+    };
+    "org.gnome.Totem" = {
+      name = "";
+      noDisplay = true;
+    };
+    "org.gnome.Tour" = {
+      name = "";
+      noDisplay = true;
+    };
+    "org.gnome.Weather" = {
+      name = "";
+      noDisplay = true;
+    };
+    "simple-scan" = {
+      name = "";
+      noDisplay = true;
+    };
+    "xterm" = {
+      name = "";
+      noDisplay = true;
+    };
+    "yelp" = {
+      name = "";
+      noDisplay = true;
     };
   };
 }
