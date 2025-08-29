@@ -25,7 +25,6 @@
   environment.systemPackages = with pkgs; [
     awscli2
     nomachine-client
-    notion-app-enhanced
     slack
     vault
   ];

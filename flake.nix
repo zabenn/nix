@@ -8,9 +8,14 @@
     home-manager.url = "github:nix-community/home-manager/release-25.05";
     home-manager.inputs.nixpkgs.follows = "nixpkgs";
 
-    nur.url = "github:nix-community/NUR";
+    affinity.url = "github:mrshmllow/affinity-nix";
+    affinity.inputs.nixpkgs.follows = "nixpkgs";
 
-    vscode-extensions.url = "github:nix-community/nix-vscode-extensions/00e11463876a04a77fb97ba50c015ab9e5bee90d";
+    nur.url = "github:nix-community/NUR";
+    nur.inputs.nixpkgs.follows = "nixpkgs";
+
+    vscode-extensions.url = "github:nix-community/nix-vscode-extensions";
+    vscode-extensions.inputs.nixpkgs.follows = "nixpkgs";
   };
 
   outputs =
@@ -18,6 +23,7 @@
       self,
       nixpkgs,
       home-manager,
+      affinity,
       nur,
       vscode-extensions,
       ...

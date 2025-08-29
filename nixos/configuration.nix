@@ -79,22 +79,28 @@
     };
   };
 
-  environment.systemPackages = with pkgs; [
-    blender
-    bitwarden
-    discord
-    firefox
-    git
-    godot
-    inter
-    nixfmt-rfc-style
-    openrgb
-    python3
-    spotify
-    tinty
-    uv
-    vscode
-  ];
+  environment.systemPackages =
+    (with pkgs; [
+      blender
+      bitwarden
+      discord
+      firefox
+      git
+      godot
+      inter
+      nixfmt-rfc-style
+      openrgb
+      python3
+      spotify
+      steam
+      tinty
+      uv
+      vscode
+    ])
+    ++ (with inputs.affinity.packages.x86_64-linux; [
+      designer
+      photo
+    ]);
 
   system.stateVersion = "23.05";
 }
