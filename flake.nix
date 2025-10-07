@@ -30,6 +30,17 @@
     }:
     let
       inherit (self) outputs;
+      mkSystem =
+        hostname: config:
+        nixpkgs.lib.nixosSystem {
+          specialArgs = { inherit inputs outputs; };
+          system = "x86_64-linux";
+          modules = [
+            { networking.hostName = hostname; }
+            ./hardware/${hostname}.nix
+            ./nixos/${config}.nix
+          ];
+        };
     in
     {
       overlays = import ./overlays { inherit inputs; };
@@ -37,24 +48,9 @@
       homeModules = import ./modules/home-manager;
 
       nixosConfigurations = {
-        p14s = nixpkgs.lib.nixosSystem {
-          specialArgs = { inherit inputs outputs; };
-          system = "x86_64-linux";
-          modules = [
-            { networking.hostName = "p14s"; }
-            ./hardware/p14s.nix
-            ./nixos/raise.nix
-          ];
-        };
-        zbox = nixpkgs.lib.nixosSystem {
-          specialArgs = { inherit inputs outputs; };
-          system = "x86_64-linux";
-          modules = [
-            { networking.hostName = "zbox"; }
-            ./hardware/zbox.nix
-            ./nixos/raise.nix
-          ];
-        };
+        p14s = mkSystem "p14s" "raise";
+        xps = mkSystem "xps" "raise";
+        zbox = mkSystem "zbox" "raise";
       };
     };
 }
