@@ -1,16 +1,22 @@
-{ config, pkgs, ... }:
 {
-  services.xserver = {
-    enable = true;
-    displayManager.gdm.enable = true;
-    desktopManager.gnome.enable = true;
-    xkb = {
-      layout = "us";
-      variant = "";
+  config,
+  pkgs,
+  lib,
+  ...
+}:
+{
+  services = {
+    gnome.gnome-keyring.enable = lib.mkForce false;
+    xserver = {
+      enable = true;
+      displayManager.gdm.enable = true;
+      desktopManager.gnome.enable = true;
+      xkb = {
+        layout = "us";
+        variant = "";
+      };
     };
   };
-
-  services.tzupdate.enable = true;
 
   environment.etc."gdm/monitors.xml".source = ../../dotfiles/monitors
   + "/${config.networking.hostName}.xml";

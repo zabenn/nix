@@ -21,6 +21,7 @@
         clock-format = "12h";
         color-scheme = "prefer-dark";
         clock-show-weekday = true;
+        enable-hot-corners = false;
       };
       "org/gnome/mutter" = {
         experimental-features = [
@@ -71,9 +72,10 @@
         winprops = [
           ''{"wm_class":"*","preferredWidth":"35%"}''
           ''{"wm_class":"Code","preferredWidth":"65%"}''
-          ''{"wm_class":"discord","preferredWidth":"50%"}''
+          ''{"wm_class":"discord","preferredWidth":"65%"}''
           ''{"wm_class":"firefox","preferredWidth":"65%"}''
           ''{"wm_class":"Godot","preferredWidth":"100%"}''
+          ''{"wm_class":"rviz2","preferredWidth":"65%"}''
         ];
       };
     };
@@ -109,10 +111,6 @@
       noDisplay = true;
     };
     "org.gnome.Evince" = {
-      name = "";
-      noDisplay = true;
-    };
-    "org.gnome.FileRoller" = {
       name = "";
       noDisplay = true;
     };
