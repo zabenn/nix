@@ -2,7 +2,13 @@
 {
   additions = final: _prev: import ../pkgs final.pkgs;
 
-  modifications = final: prev: { };
+  modifications = final: prev: {
+    gnome-keyring = prev.gnome-keyring.overrideAttrs (oldAttrs: {
+      mesonFlags = (builtins.filter (flag: flag != "-Dssh-agent=true") oldAttrs.mesonFlags) ++ [
+        "-Dssh-agent=false"
+      ];
+    });
+  };
 
   unstable-packages = final: _prev: {
     unstable = import inputs.nixpkgs-unstable {

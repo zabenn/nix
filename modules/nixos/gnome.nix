@@ -6,7 +6,6 @@
 }:
 {
   services = {
-    gnome.gnome-keyring.enable = lib.mkForce false;
     xserver = {
       enable = true;
       displayManager.gdm.enable = true;

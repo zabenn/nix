@@ -75,6 +75,7 @@
           ''{"wm_class":"discord","preferredWidth":"65%"}''
           ''{"wm_class":"firefox","preferredWidth":"65%"}''
           ''{"wm_class":"Godot","preferredWidth":"100%"}''
+          ''{"wm_class":"Nxplayer.bin","preferredWidth":"65%"}''
           ''{"wm_class":"rviz2","preferredWidth":"65%"}''
         ];
       };

@@ -2,6 +2,10 @@
 {
   services.ssh-agent.enable = false;
 
+  home.sessionVariables = {
+    SSH_AUTH_SOCK = "${config.home.homeDirectory}/.bitwarden-ssh-agent.sock";
+  };
+
   home.file.".ssh/zabenn.pub" = {
     source = ../../dotfiles/ssh/zabenn.pub;
   };
@@ -10,7 +14,6 @@
     enable = true;
     matchBlocks = {
       "*" = {
-        identityAgent = "${config.home.homeDirectory}/.bitwarden-ssh-agent.sock";
         identityFile = "${config.home.homeDirectory}/.ssh/zabenn.pub";
       };
     };
