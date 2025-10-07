@@ -48,6 +48,60 @@
     lidSwitchDocked = "ignore";
   };
 
+  services.automatic-timezoned.enable = true;
+
+  services.geoclue2.geoProviderUrl = "https://api.beacondb.net/v1/geolocate";
+
+  services.hardware.openrgb = {
+    enable = true;
+    package = pkgs.openrgb-with-all-plugins;
+    motherboard = "intel";
+    server = {
+      port = 6742;
+    };
+  };
+
+  services.speechd = {
+    enable = true;
+  };
+
+  environment.etc."speech-dispatcherc/clients/hypnos.conf".source =
+    ../dotfiles/steam/hypnospace_outlaw/hypnos.conf;
+  environment.etc."speech-dispatcher/speechd.conf".source =
+    ../dotfiles/steam/hypnospace_outlaw/speechd.conf;
+
+  networking.firewall = {
+    allowedTCPPorts = [
+      7236
+      7250
+    ];
+    allowedUDPPorts = [
+      7236
+      5353
+    ];
+  };
+
+  environment.systemPackages = with pkgs; [
+    blender
+    bitwarden
+    discord
+    firefox
+    git
+    gnome-network-displays
+    godot
+    inter
+    nixfmt-rfc-style
+    openrgb
+    python3
+    spotify
+    steam
+    tinty
+    uv
+    vscode
+    inputs.affinity.packages.x86_64-linux.designer
+    inputs.affinity.packages.x86_64-linux.photo
+  ];
+
   users.users = {
     sam = {
       isNormalUser = true;
@@ -69,38 +123,6 @@
       ];
     };
   };
-
-  services.hardware.openrgb = {
-    enable = true;
-    package = pkgs.openrgb-with-all-plugins;
-    motherboard = "intel";
-    server = {
-      port = 6742;
-    };
-  };
-
-  environment.systemPackages =
-    (with pkgs; [
-      blender
-      bitwarden
-      discord
-      firefox
-      git
-      godot
-      inter
-      nixfmt-rfc-style
-      openrgb
-      python3
-      spotify
-      steam
-      tinty
-      uv
-      vscode
-    ])
-    ++ (with inputs.affinity.packages.x86_64-linux; [
-      designer
-      photo
-    ]);
 
   system.stateVersion = "23.05";
 }
