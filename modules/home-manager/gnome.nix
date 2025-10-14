@@ -12,7 +12,29 @@
         dark-full-screen = false;
         transparency = 0;
       };
-      "org/gnome/desktop/app-folders".folder-children = [ ];
+      "org/gnome/desktop/app-folders" = {
+        folder-children = [ ];
+      };
+      "org/gnome/desktop/app-folders/folders/Pardus" = {
+        apps = [ ];
+        categories = [ ];
+        name = "";
+      };
+      "org/gnome/desktop/app-folders/folders/System" = {
+        apps = [ ];
+        categories = [ ];
+        name = "";
+      };
+      "org/gnome/desktop/app-folders/folders/Utilities" = {
+        apps = [ ];
+        categories = [ ];
+        name = "";
+      };
+      "org/gnome/desktop/app-folders/folders/YaST" = {
+        apps = [ ];
+        categories = [ ];
+        name = "";
+      };
       "org/gnome/desktop/background" = {
         picture-uri-dark = "file://" + toString ../../dotfiles/gnome/wallpaper.png;
       };
