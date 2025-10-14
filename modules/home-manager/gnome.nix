@@ -34,7 +34,7 @@
         enabled-extensions = [
           pkgs.gnomeExtensions.alphabetical-app-grid.extensionUuid
           pkgs.gnomeExtensions.just-perfection.extensionUuid
-          pkgs.gnomeExtensions.paperwm.extensionUuid
+          pkgs.gnomeExtensions.paperwm-fork.extensionUuid
           pkgs.gnomeExtensions.transparent-top-bar-adjustable-transparency.extensionUuid
         ];
       };

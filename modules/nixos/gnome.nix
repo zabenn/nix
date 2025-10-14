@@ -20,11 +20,11 @@
   environment.etc."gdm/monitors.xml".source = ../../dotfiles/monitors
   + "/${config.networking.hostName}.xml";
 
-  environment.systemPackages = with pkgs; [
-    gnomeExtensions.alphabetical-app-grid
-    gnomeExtensions.just-perfection
-    gnomeExtensions.paperwm
-    gnomeExtensions.transparent-top-bar-adjustable-transparency
+  environment.systemPackages = with pkgs.gnomeExtensions; [
+    alphabetical-app-grid
+    just-perfection
+    paperwm-fork
+    transparent-top-bar-adjustable-transparency
   ];
 
   networking.firewall = {
