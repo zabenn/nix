@@ -23,6 +23,7 @@
       outputs.overlays.additions
       outputs.overlays.modifications
       outputs.overlays.unstable-packages
+      outputs.overlays.affinity-packages
     ];
     config = {
       allowUnfree = true;
@@ -43,27 +44,27 @@
     };
   };
 
-  programs.vscode = {
+  programs.cursor = {
     enable = true;
-    profiles.default = {
-      extensions = with pkgs.vscode-extensions; [
-        jnoortheen.nix-ide
-        ms-azuretools.vscode-docker
-        ms-python.python
-        ms-vscode-remote.remote-containers
-        ms-vscode-remote.remote-ssh
-      ];
-      userSettings = {
-        "editor.formatOnSave" = true;
-        "explorer.confirmDelete" = false;
-        "files.insertFinalNewline" = true;
-        "git.allowForcePush" = true;
-        "git.autofetch" = true;
-        "git.confirmForcePush" = false;
-        "git.enableSmartCommit" = true;
-        "remote.autoForwardPortsSource" = "hybrid";
-        "remote.SSH.configFile" = "${config.home.homeDirectory}/metalman2/.devops/ssh/config";
-      };
+    extensions = with pkgs.vscode-extensions; [
+      geequlim.godot-tools
+      jnoortheen.nix-ide
+      ms-azuretools.vscode-docker
+      ms-python.python
+      ms-vscode-remote.remote-containers
+      ms-vscode-remote.remote-ssh
+    ];
+    userSettings = {
+      "editor.formatOnSave" = true;
+      "explorer.confirmDelete" = false;
+      "files.insertFinalNewline" = true;
+      "git.allowForcePush" = true;
+      "git.autofetch" = true;
+      "git.confirmForcePush" = false;
+      "git.enableSmartCommit" = true;
+      "remote.autoForwardPortsSource" = "hybrid";
+      "remote.SSH.configFile" = "${config.home.homeDirectory}/metalman2/.devops/ssh/config";
+      "workbench.colorTheme" = "Default Dark Modern";
     };
   };
 

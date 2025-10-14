@@ -11,6 +11,6 @@ in
   home.file.".local/share/godot/themes/minimal_theme.tres".source =
     "${godotMinimalTheme}/minimal_theme.tres";
 
-  home.file.".config/godot/editor_settings-4.4.tres".source =
+  xdg.configFile."godot/editor_settings-4.4.tres".source =
     ../../dotfiles/godot/editor_settings-4.4.tres;
 }

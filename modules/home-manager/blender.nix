@@ -19,13 +19,13 @@ let
   };
 in
 {
-  home.file.".config/blender/${pkgs.lib.versions.majorMinor pkgs.blender.version}/extensions/user_default/cad_sketcher".source =
+  xdg.configFile."blender/${pkgs.lib.versions.majorMinor pkgs.blender.version}/extensions/user_default/cad_sketcher".source =
     cadSketcher;
-  home.file.".config/blender/${pkgs.lib.versions.majorMinor pkgs.blender.version}/extensions/user_default/gamerigtools".source =
+  xdg.configFile."blender/${pkgs.lib.versions.majorMinor pkgs.blender.version}/extensions/user_default/gamerigtools".source =
     gameRigTools;
-  home.file.".config/blender/${pkgs.lib.versions.majorMinor pkgs.blender.version}/extensions/user_default/looptools".source =
+  xdg.configFile."blender/${pkgs.lib.versions.majorMinor pkgs.blender.version}/extensions/user_default/looptools".source =
     "${loopTools}/source";
 
-  home.file.".config/blender/${pkgs.lib.versions.majorMinor pkgs.blender.version}/config/userpref.blend".source =
+  xdg.configFile."blender/${pkgs.lib.versions.majorMinor pkgs.blender.version}/config/userpref.blend".source =
     ../../dotfiles/blender/userpref.blend;
 }

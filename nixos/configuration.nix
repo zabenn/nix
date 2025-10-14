@@ -21,6 +21,7 @@
       outputs.overlays.additions
       outputs.overlays.modifications
       outputs.overlays.unstable-packages
+      outputs.overlays.affinity-packages
     ];
     config = {
       allowUnfree = true;
@@ -70,18 +71,16 @@
   environment.etc."speech-dispatcher/speechd.conf".source =
     ../dotfiles/steam/hypnospace_outlaw/speechd.conf;
 
-  networking.firewall = {
-    allowedTCPPorts = [
-      7236
-      7250
-    ];
-    allowedUDPPorts = [
-      7236
-      5353
+  programs.nix-ld = {
+    enable = true;
+    libraries = with pkgs; [
+      stdenv.cc.cc.lib
     ];
   };
 
   environment.systemPackages = with pkgs; [
+    affinity.designer
+    affinity.photo
     blender
     bitwarden
     discord
@@ -96,10 +95,8 @@
     spotify
     steam
     tinty
+    unstable.code-cursor
     uv
-    vscode
-    inputs.affinity.packages.x86_64-linux.designer
-    inputs.affinity.packages.x86_64-linux.photo
   ];
 
   users.users = {

@@ -26,4 +26,15 @@
     gnomeExtensions.paperwm
     gnomeExtensions.transparent-top-bar-adjustable-transparency
   ];
+
+  networking.firewall = {
+    allowedTCPPorts = [
+      7236
+      7250
+    ];
+    allowedUDPPorts = [
+      7236
+      5353
+    ];
+  };
 }

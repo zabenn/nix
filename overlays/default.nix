@@ -16,4 +16,8 @@
       config.allowUnfree = true;
     };
   };
+
+  affinity-packages = final: _prev: {
+    affinity = inputs.affinity.packages.${final.system};
+  };
 }

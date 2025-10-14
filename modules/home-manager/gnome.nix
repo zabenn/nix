@@ -72,7 +72,7 @@
         winprops = [
           ''{"wm_class":"*","preferredWidth":"35%"}''
           ''{"wm_class":"blender","preferredWidth":"65%"}''
-          ''{"wm_class":"Code","preferredWidth":"65%"}''
+          ''{"wm_class":"Cursor","preferredWidth":"65%"}''
           ''{"wm_class":"designer.exe","preferredWidth":"65%"}''
           ''{"wm_class":"discord","preferredWidth":"65%"}''
           ''{"wm_class":"firefox","preferredWidth":"65%"}''
