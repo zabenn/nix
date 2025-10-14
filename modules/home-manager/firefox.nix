@@ -17,18 +17,22 @@ in
         "browser.download.dir" = "${config.home.homeDirectory}";
         "browser.download.useDownloadDir" = true;
         "browser.formfill.enable" = false;
-        "browser.newtab.url" = "https://www.google.com";
+        "browser.newtabpage.activity-stream.feeds.section.topstories" = false;
+        "browser.newtabpage.activity-stream.feeds.topsites" = false;
+        "browser.newtabpage.activity-stream.showSponsored" = false;
+        "browser.newtabpage.activity-stream.showSponsoredTopSites" = false;
         "browser.startup.page" = 3;
+        "browser.theme.dark-private-windows" = false;
+        "browser.uidensity" = 0;
         "extensions.autoDisableScopes" = 0;
         "extensions.enabledScopes" = 15;
         "extensions.formautofill.addresses.enabled" = false;
         "extensions.formautofill.creditCards.enabled" = false;
+        "media.eme.enabled" = true;
         "pref.privacy.disable_button.view_passwords" = true;
         "signon.rememberSignons" = false;
-        "toolkit.legacyUserProfileCustomizations.stylesheets" = true;
-        "browser.uidensity" = 0;
         "svg.context-properties.content.enabled" = true;
-        "browser.theme.dark-private-windows" = false;
+        "toolkit.legacyUserProfileCustomizations.stylesheets" = true;
       };
       extensions.packages = with pkgs.nur.repos.rycee.firefox-addons; [
         bitwarden
