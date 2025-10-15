@@ -44,16 +44,17 @@
     };
   };
 
-  programs.cursor = {
+  programs.vscode = {
     enable = true;
-    extensions = with pkgs.vscode-extensions; [
-      geequlim.godot-tools
-      jnoortheen.nix-ide
-      ms-azuretools.vscode-docker
-      ms-python.python
-      ms-vscode-remote.remote-containers
-      ms-vscode-remote.remote-ssh
-    ];
+    profiles.default = {
+      extensions = with pkgs.vscode-extensions; [
+        jnoortheen.nix-ide
+        ms-azuretools.vscode-docker
+        ms-python.python
+        ms-vscode-remote.remote-containers
+        ms-vscode-remote.remote-ssh
+      ];
+    };
     userSettings = {
       "editor.formatOnSave" = true;
       "explorer.confirmDelete" = false;

@@ -71,13 +71,6 @@
   environment.etc."speech-dispatcher/speechd.conf".source =
     ../dotfiles/steam/hypnospace_outlaw/speechd.conf;
 
-  programs.nix-ld = {
-    enable = true;
-    libraries = with pkgs; [
-      stdenv.cc.cc.lib
-    ];
-  };
-
   environment.systemPackages = with pkgs; [
     affinity.designer
     affinity.photo
@@ -95,8 +88,8 @@
     spotify
     steam
     tinty
-    unstable.code-cursor
     uv
+    vscode
   ];
 
   users.users = {
