@@ -5,6 +5,16 @@
   ...
 }:
 {
+  gtk = {
+    enable = true;
+    theme = {
+      name = "Adwaita-dark";
+    };
+    gtk3.extraConfig = {
+      gtk-application-prefer-dark-theme = true;
+    };
+  };
+
   dconf = {
     enable = true;
     settings = {
@@ -44,8 +54,23 @@
         color-scheme = "prefer-dark";
         clock-show-weekday = true;
         enable-hot-corners = false;
+        gtk-theme = "Adwaita-dark";
+      };
+      "org/gnome/desktop/search-providers" = {
+        disabled = [ ];
+        sort-order = [
+          "org.gnome.Calendar.desktop"
+          "org.gnome.Characters.desktop"
+          "org.gnome.Contacts.desktop"
+          "org.gnome.Nautilus.desktop"
+          "org.gnome.Settings.desktop"
+        ];
+      };
+      "org/gnome/desktop/wm/preferences" = {
+        num-workspaces = 1;
       };
       "org/gnome/mutter" = {
+        dynamic-workspaces = false;
         experimental-features = [
           "scale-monitor-framebuffer"
           "xwayland-native-scaling"
@@ -54,19 +79,11 @@
       "org/gnome/shell" = {
         disable-user-extensions = false;
         enabled-extensions = [
-          pkgs.gnomeExtensions.alphabetical-app-grid.extensionUuid
-          pkgs.gnomeExtensions.just-perfection.extensionUuid
           pkgs.gnomeExtensions.paperwm-fork.extensionUuid
           pkgs.gnomeExtensions.transparent-top-bar-adjustable-transparency.extensionUuid
+          pkgs.gnomeExtensions.vertical-workspaces.extensionUuid
+          pkgs.gnomeExtensions.vscode-search-provider.extensionUuid
         ];
-      };
-      "org/gnome/shell/extensions/just-perfection" = {
-        activities-button = false;
-        dash = false;
-        search = false;
-        workspace = false;
-        workspace-peek = false;
-        workspace-popup = false;
       };
       "org/gnome/shell/extensions/paperwm" = {
         cycle-height-steps = [
@@ -98,10 +115,29 @@
           ''{"wm_class":"designer.exe","preferredWidth":"65%"}''
           ''{"wm_class":"discord","preferredWidth":"65%"}''
           ''{"wm_class":"firefox","preferredWidth":"65%"}''
-          ''{"wm_class":"Godot","preferredWidth":"100%"}''
+          ''{"wm_class":"Godot","preferredWidth":"65%"}''
           ''{"wm_class":"Nxplayer.bin","preferredWidth":"65%"}''
           ''{"wm_class":"rviz2","preferredWidth":"65%"}''
         ];
+      };
+      "org/gnome/shell/extensions/vertical-workspaces" = {
+        app-grid-animation = 3;
+        app-grid-bg-blur-sigma = 0;
+        app-grid-order = 4;
+        app-grid-page-width-scale = 70;
+        dash-position = 4;
+        highlighting-style = 0;
+        overview-bg-blur-sigma = 0;
+        overview-mode = 0;
+        search-app-grid-mode = 0;
+        search-bg-brightness = 60;
+        search-width-scale = 60;
+        show-overview-background = 2;
+        show-ws-preview-bg = false;
+        startup-state = 2;
+        swipe-tracker-module = false;
+        workspace-animation = 0;
+        ws-thumbnails-position = 4;
       };
     };
   };

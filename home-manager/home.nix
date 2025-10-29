@@ -48,24 +48,41 @@
     enable = true;
     profiles.default = {
       extensions = with pkgs.vscode-extensions; [
+        # eddiedover.gdscript-formatter-linter
+        geequlim.godot-tools
         jnoortheen.nix-ide
         ms-azuretools.vscode-docker
         ms-python.python
         ms-vscode-remote.remote-containers
         ms-vscode-remote.remote-ssh
+        piousdeer.adwaita-theme
       ];
-    };
-    userSettings = {
-      "editor.formatOnSave" = true;
-      "explorer.confirmDelete" = false;
-      "files.insertFinalNewline" = true;
-      "git.allowForcePush" = true;
-      "git.autofetch" = true;
-      "git.confirmForcePush" = false;
-      "git.enableSmartCommit" = true;
-      "remote.autoForwardPortsSource" = "hybrid";
-      "remote.SSH.configFile" = "${config.home.homeDirectory}/metalman2/.devops/ssh/config";
-      "workbench.colorTheme" = "Default Dark Modern";
+      userSettings = {
+        "chat.editing.confirmEditRequestRemoval" = false;
+        "editor.formatOnSave" = true;
+        "editor.minimap.enabled" = false;
+        "editor.renderLineHighlight" = "none";
+        "explorer.confirmDelete" = false;
+        "files.insertFinalNewline" = true;
+        "git.allowForcePush" = true;
+        "git.autofetch" = true;
+        "git.confirmForcePush" = false;
+        "git.enableSmartCommit" = true;
+        "godotTools.editor.revealTerminal" = false;
+        "godotTools.lsp.autoReconnect.attempts" = 1;
+        "remote.autoForwardPortsSource" = "hybrid";
+        "remote.SSH.configFile" = "${config.home.homeDirectory}/metalman2/.devops/ssh/config";
+        "scm.defaultViewMode" = "tree";
+        "window.autoDetectColorScheme" = true;
+        "window.commandCenter" = true;
+        "window.titleBarStyle" = "custom";
+        "workbench.iconTheme" = null;
+        "workbench.preferredDarkColorTheme" = "Default Dark Modern";
+        "workbench.preferredLightColorTheme" = "Default Light Modern";
+        "workbench.productIconTheme" = "adwaita";
+        "workbench.tree.indent" = 12;
+        "workbench.welcomePage.walkthroughs.openOnInstall" = false;
+      };
     };
   };
 
