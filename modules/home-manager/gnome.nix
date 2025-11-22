@@ -125,13 +125,16 @@
         app-grid-bg-blur-sigma = 0;
         app-grid-order = 4;
         app-grid-page-width-scale = 70;
+        click-empty-close = true;
         dash-position = 4;
         highlighting-style = 0;
         overview-bg-blur-sigma = 0;
         overview-mode = 0;
         search-app-grid-mode = 0;
         search-bg-brightness = 60;
-        search-width-scale = 60;
+        search-fuzzy = true;
+        search-include-settings = false;
+        search-width-scale = 70;
         show-overview-background = 2;
         show-ws-preview-bg = false;
         startup-state = 2;

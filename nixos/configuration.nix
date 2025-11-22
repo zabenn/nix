@@ -12,8 +12,10 @@
     ../modules/nixos
   ];
 
-  boot.loader.systemd-boot.enable = true;
-  boot.loader.efi.canTouchEfiVariables = true;
+  boot.loader = {
+    systemd-boot.enable = true;
+    efi.canTouchEfiVariables = false;
+  };
 
   nixpkgs = {
     overlays = [
@@ -83,7 +85,9 @@
     godot
     inter
     nixfmt-rfc-style
+    nodejs
     openrgb
+    pnpm
     python3
     spotify
     steam

@@ -26,6 +26,6 @@
     awscli2
     nomachine-client
     slack
-    vault
+    vault-bin
   ];
 }

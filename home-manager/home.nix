@@ -32,6 +32,11 @@
 
   xdg.userDirs.createDirectories = false;
 
+  programs.nix-index = {
+    enable = true;
+    enableBashIntegration = true;
+  };
+
   programs.git = {
     enable = true;
     userName = "Sam Cribbs";
@@ -68,8 +73,9 @@
         "git.autofetch" = true;
         "git.confirmForcePush" = false;
         "git.enableSmartCommit" = true;
+        "godotFormatterAndLinter.lintSeverityLevel" = "Warning";
         "godotTools.editor.revealTerminal" = false;
-        "godotTools.lsp.autoReconnect.attempts" = 1;
+        "godotTools.lsp.autoReconnect.attempts" = 3;
         "remote.autoForwardPortsSource" = "hybrid";
         "remote.SSH.configFile" = "${config.home.homeDirectory}/metalman2/.devops/ssh/config";
         "scm.defaultViewMode" = "tree";
